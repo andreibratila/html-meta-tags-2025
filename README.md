@@ -227,8 +227,9 @@ Use custom meta tags to store data that you need in javascript, instead of hard-
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-<!-- Canonical URL (para SEO) -->
+<!-- Canonical URL (SEO) -->
 <link rel="canonical" href="https://yourdomain.com/about">
+<link rel="alternate" hreflang="es" href="https://myweb.com/es">
 
 <!-- RSS/Atom (for blogs) -->
 <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
