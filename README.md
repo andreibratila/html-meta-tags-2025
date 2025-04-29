@@ -8,7 +8,6 @@ from: https://github.com/kevinSuttle/html-meta-tags
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="150 words"/>
-<meta name=generator content="Frontweaver 8.2">
 <meta name="author" content="name name name">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 
@@ -251,53 +250,6 @@ Use custom meta tags to store data that you need in javascript, instead of hard-
 
 <link rel='shortlink' href='http://blog.unto.net/?p=353' />
 ```
-
-## Redundant 
-
-### `<meta http-equiv="x-dns-prefetch-control" content="on">`
-- **Why Redundant?**:  
-  Modern browsers (Chrome/Firefox/Safari) enable DNS prefetching by default.
-- **Modern Alternative**:  
-  ```html
-  <!-- More effective resource hint -->
-  <link rel="preconnect" href="https://cdn.example.com">
-  <!-- For critical resources -->
-  <link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin>
-
-  
-## Deprecated or nearly deprecated
-
-### `<meta name="copyright" content="">`
-- **Reason**: Intended to declare copyright ownership.
-- **Status**: **Redundant** — Valid in HTML5 but ineffective for SEO or legal protection.
-- **Modern alternative**:
-  - Visible copyright notice in the footer (e.g., `© 2023 Company Name`).
-  - Link to a **`/copyright`** page or use **Schema.org `copyrightNotice`** in structured data.
-
-
-
-### `<meta name="keywords" content="word1, word2, word3">`
-- **Reason**: Originally helped search engines understand page content via keyword lists.
-- **Status**: **Useless** - Google officially stopped using it in 2009 due to rampant spam abuse.
-- **Modern alternative**: Focus on natural keyword placement in content and structured data (Schema.org).
-
-### `<meta itemprop="[property]" content="[value]">`
-- **Purpose**: Part of Schema.org microdata syntax for structured data markup (2011-2015 era).
-- **Status**: **Legacy** - Still parsed but replaced by JSON-LD as the modern standard.
-- **Replacement**: 
-  ```html
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "[TYPE]",
-    "[PROPERTY]": "[VALUE]"
-  }
-  </script>
-  ```
-  
-  
-
-
 
 ## Other Resources
 
