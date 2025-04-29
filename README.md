@@ -58,6 +58,10 @@ from: https://github.com/kevinSuttle/html-meta-tags
   data:             | Allow data: URIs
   https:            | Only allow HTTPS resources
   Domains           | Specific allowed domains (https://example.com)
+
+for only self-origin:
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+
 -->
 
 <meta http-equiv="Content-Security-Policy" content="
@@ -81,17 +85,20 @@ from: https://github.com/kevinSuttle/html-meta-tags
 
 ``` html
 <meta property="og:title" content="The Rock"/>
-<meta property="og:type" content="website" />
+
 <!-- Avalible: "website", "article", "product"
 or custom types : https://ogp.me/#types
 -->
+<meta property="og:type" content="website" />
+
 <meta property="og:url" content="https://www.imdb.com/title/tt0117500/"/>
 <meta property="og:site_name" content="IMDb"/>
 <meta property="og:description" content="A group of U.S. Marines, under command of..."/>
 <meta property="og:locale" content="es_ES" />
 <meta property="og:locale:alternate" content="fr_FR" />
-<meta property="og:determiner" content="the"> 
+
 <!-- Avalible: "a", "an", "the", "", "auto" -->
+<meta property="og:determiner" content="the"> 
 
 
 <meta property="og:image" content="https://example.com/ogp.jpg" />
@@ -133,20 +140,24 @@ Use custom meta tags to store data that you need in javascript, instead of hard-
 
 ## Company/Service Meta Tags
 
-
 #### Apple Meta Tags
 
 ``` html
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
 <!-- PWA or WebApp Apple -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Mi App">
+<!-- options: "default", "black", "black-translucent" --->
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 
 <!-- Icons (minimum) -->
 <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" sizes="180x180">
 <link rel="apple-touch-icon" href="/apple-touch-icon-167x167.png" sizes="167x167">
 <link rel="apple-touch-icon" href="/apple-touch-icon-152x152.png" sizes="152x152">
+
+<meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
 
 ```
 
@@ -154,19 +165,53 @@ Use custom meta tags to store data that you need in javascript, instead of hard-
 #### X / Twitter Meta Tags
 
 ``` html
+<!-- REQUIRED CARD TYPE -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@company">
-<meta name="twitter:creator" content="@author">
-<meta name="twitter:title" content="Amazing Content">
-<meta name="twitter:description" content="This will blow your mind">
-<meta name="twitter:image" content="https://example.com/image.jpg">
-<meta name="twitter:image:alt" content="Illustration of main concept">
-```
+<!-- 
+  Available card types:
+  - summary: Standard card with thumbnail (300x300)
+  - summary_large_image: Large image card (600x314)
+  - player: Video/audio player card
+  - app: Deep link to mobile app
+-->
 
-#### Blog Catalog Meta Tags
+<!-- SITE/CREDENTIALS -->
+<meta name="twitter:site" content="@company"> <!-- OR -->
+<meta name="twitter:site:id" content="123456789"> <!-- Twitter Business ID -->
+<meta name="twitter:creator" content="@author"> <!-- OR -->
+<meta name="twitter:creator:id" content="987654321"> <!-- Author Twitter ID -->
 
-``` html
-<meta name="blogcatalog" />
+<!-- CONTENT METADATA -->
+<meta name="twitter:title" content="Page Title (70 chars max)">
+<meta name="twitter:description" content="Description (200 chars max)">
+<meta name="twitter:image" content="https://example.com/image.jpg"> <!-- 5MB max, 1200x630px optimal -->
+<meta name="twitter:image:alt" content="Alt text for visually impaired (420 chars max)">
+
+<!-- PLAYER CARD (Video/Audio) -->
+<meta name="twitter:player" content="https://example.com/player">
+<meta name="twitter:player:width" content="1280">
+<meta name="twitter:player:height" content="720">
+<meta name="twitter:player:stream" content="https://example.com/video.mp4">
+
+<!-- APP CARD (Mobile Deep Linking) -->
+<!-- iOS -->
+<meta name="twitter:app:name:iphone" content="App Name">
+<meta name="twitter:app:id:iphone" content="ios_app_store_id">
+<meta name="twitter:app:url:iphone" content="appname://">
+<meta name="twitter:app:name:ipad" content="App Name (iPad)">
+<meta name="twitter:app:id:ipad" content="ios_app_store_id">
+<meta name="twitter:app:url:ipad" content="appname://">
+
+<!-- Android -->
+<meta name="twitter:app:name:googleplay" content="App Name">
+<meta name="twitter:app:id:googleplay" content="com.company.app">
+<meta name="twitter:app:url:googleplay" content="appname://">
+
+<!-- FALLBACK NOTES:
+- If Twitter tags are missing, X falls back to OpenGraph equivalents
+- Required minimum for rich cards: 
+  twitter:card + twitter:title + twitter:description + twitter:image
+-->
 ```
 
 #### Rails Meta Tags
@@ -176,51 +221,37 @@ Use custom meta tags to store data that you need in javascript, instead of hard-
 <meta name="csrf-token" content="/bZVwvomkAnwAI1Qd37lFeewvpOIiackk9121fFwWwc="/>
 ```
 
-#### Apple Tags
-
-``` html
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="format-detection" content="telephone=no">
-<meta name= "viewport" content = "width = 320, initial-scale = 2.3, user-scalable = no">
-<meta name= "viewport" content = "width = device-width">
-<meta name = "viewport" content = "initial-scale = 1.0">
-<meta name = "viewport" content = "initial-scale = 2.3, user-scalable = no">
-<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
-<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
-<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
-<link rel="apple-touch-startup-image" href="/startup.png">
-
-<link rel="apple-touch-icon" type="image/png" href="/apple-touch-icon.png" />
-```
-    
 ## HTML Link Tags
 
 ``` html
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<!-- Canonical URL (para SEO) -->
+<link rel="canonical" href="https://yourdomain.com/about">
+
+<!-- RSS/Atom (for blogs) -->
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+<!-- Preconexión (performance improvement) -->
+<link rel="preconnect" href="https://cdn.tudominio.com">
+
+<!-- OpenSearch (custom search) -->
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Search in my Site e">
+
+<!-- Verificación redes sociales (IndieWeb) -->
+<link rel="me" href="https://github.com/yourUser">
+<link rel="me" href="https://twitter.com/yourUser">
+
+<!-- PWA -->
+<link rel="manifest" href="/manifest.webmanifest">
+
 <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/martini" />
-<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
-<link rel="fluid-icon" type="image/png" href="/fluid-icon.png" />
-<link rel="me" type="text/html" href="http://google.com/profiles/thenextweb"/>
+
 <link rel='shortlink' href='http://blog.unto.net/?p=353' />
-<link rel='archives' title='May 2003' href='http://blog.unto.net/2003/05/' />
-<link rel='index' title='DeWitt Clinton' href='http://blog.unto.net/' />
-<link rel='start' title='Pattern Recognition 1' href='http://blog.unto.net/photos/pattern_recognition_1_about/' />
-<link rel='prev' title='OpenSearch and OpenID?  A sure way to get my attention.' href='http://blog.unto.net/opensearch/opensearch-and-openid-a-sure-way-to-get-my-attention/' />
-<link rel='next' title='Not blog' href='http://blog.unto.net/meta/not-blog/' />
-<link rel="search" href="/search.xml" type="application/opensearchdescription+xml" title="Viatropos" />
-
-<link rel="self" type="application/atom+xml" href="http://www.syfyportal.com/atomFeed.php?page=3"/>
-<link rel="first" href="http://www.syfyportal.com/atomFeed.php"/>
-<link rel="next" href="http://www.syfyportal.com/atomFeed.php?page=4"/>
-<link rel="previous" href="http://www.syfyportal.com/atomFeed.php?page=2"/>
-<link rel="last" href="http://www.syfyportal.com/atomFeed.php?page=147"/>
-
-<link rel='shortlink' href='http://smallbiztrends.com/?p=43625' />
-<link rel="canonical" href="http://smallbiztrends.com/2010/06/9-things-to-do-before-entering-social-media.html" />
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://smallbiztrends.com/xmlrpc.php?rsd" />
-<link rel="pingback" href="http://smallbiztrends.com/xmlrpc.php" />
-<link media="only screen and (max-device-width: 480px)" href="http://wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
 ```
+
 ## Redundant 
 
 ### `<meta http-equiv="x-dns-prefetch-control" content="on">`
