@@ -6,7 +6,7 @@ from: https://github.com/kevinSuttle/html-meta-tags
 
 ``` html
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 <meta name="description" content="150 words"/>
 <meta name="author" content="name name name">
 <meta name="referrer" content="strict-origin-when-cross-origin">
