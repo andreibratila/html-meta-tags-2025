@@ -245,10 +245,6 @@ Use custom meta tags to store data that you need in javascript, instead of hard-
 <!-- OpenSearch (custom search) -->
 <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Search in my Site e">
 
-<!-- Verificación redes sociales (IndieWeb) -->
-<link rel="me" href="https://github.com/yourUser">
-<link rel="me" href="https://twitter.com/yourUser">
-
 <!-- PWA -->
 <link rel="manifest" href="/manifest.webmanifest">
 
