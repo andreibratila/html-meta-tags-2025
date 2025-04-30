@@ -251,6 +251,7 @@ Use custom meta tags to store data that you need in javascript, instead of hard-
 ```
 
 ## Other Resources
+- [Generate favicon & icons](https://www.favicon-generator.org/)
 
 - [Apple Meta Tags](http://developer.apple.com/safari/library/documentation/appleapplications/reference/safarihtmlref/articles/metatags.html)
 - [OpenGraph Meta Tags](http://opengraphprotocol.org/)
