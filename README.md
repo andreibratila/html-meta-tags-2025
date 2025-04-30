@@ -10,12 +10,15 @@ from: https://github.com/kevinSuttle/html-meta-tags
 <meta name="description" content="150 words"/>
 <meta name="author" content="name name name">
 <!-- 
-  Available policies:
-  - no-referrer: Never send referrer info
-  - no-referrer-when-downgrade: Default (send full URL only on HTTPS→HTTPS)
-  - strict-origin: Send domain only (no path/parameters)
-  - strict-origin-when-cross-origin: ★ Recommended (full URL for same-origin, domain-only for cross-origin)
-  - unsafe-url: Always send full URL (security risk)
+  Available values:
+  - no-referrer: Never send the Referer header.
+  - no-referrer-when-downgrade: Send Referer only when navigating to a secure (HTTPS) origin.
+  - origin: Only send the origin (scheme + host + port).
+  - origin-when-cross-origin: Send full URL for same-origin, only origin for cross-origin.
+  - same-origin: Only send Referer for same-origin requests.
+  - strict-origin: Send only the origin, never when downgrading from HTTPS to HTTP.
+  - strict-origin-when-cross-origin: ★ Recommended  Send full URL for same-origin, origin for cross-origin, omit on downgrade. (Recommended)
+  - unsafe-url: Always send full URL regardless of security or origin. (Not recommended)
 -->
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
