@@ -235,6 +235,7 @@ Use custom meta tags to store data that you need in javascript, instead of hard-
 <!-- Canonical URL (SEO) -->
 <link rel="canonical" href="https://yourdomain.com/about">
 <link rel="alternate" hreflang="es" href="https://myweb.com/es">
+<link rel='shortlink' href='http://blog.unto.net/?p=353' />
 
 <!-- RSS/Atom (for blogs) -->
 <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
@@ -247,10 +248,6 @@ Use custom meta tags to store data that you need in javascript, instead of hard-
 
 <!-- PWA -->
 <link rel="manifest" href="/manifest.webmanifest">
-
-<link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/martini" />
-
-<link rel='shortlink' href='http://blog.unto.net/?p=353' />
 ```
 
 ## Other Resources
