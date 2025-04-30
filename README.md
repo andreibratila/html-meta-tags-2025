@@ -9,7 +9,6 @@ from: https://github.com/kevinSuttle/html-meta-tags
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 <meta name="description" content="150 words"/>
 <meta name="author" content="name name name">
-<meta name="referrer" content="strict-origin-when-cross-origin">
 <!-- 
   Available policies:
   - no-referrer: Never send referrer info
@@ -18,7 +17,8 @@ from: https://github.com/kevinSuttle/html-meta-tags
   - strict-origin-when-cross-origin: ★ Recommended (full URL for same-origin, domain-only for cross-origin)
   - unsafe-url: Always send full URL (security risk)
 -->
-<meta name="robots" content="index,follow" />
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
 <!-- 
   Available directives:
   - index/noindex: Allow/prevent page indexing
@@ -26,6 +26,8 @@ from: https://github.com/kevinSuttle/html-meta-tags
   - noimageindex: Prevent image indexing
   - none: Shorthand for noindex,nofollow
 -->
+<meta name="robots" content="index,follow" />
+
 <!-- only WebApp or pwa-->
 <meta name="application-name" content="my app">
 <!-- 
