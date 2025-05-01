@@ -236,6 +236,7 @@ Use custom meta tags to store data that you need in javascript, instead of hard-
 <link rel="canonical" href="https://yourdomain.com/about">
 <link rel="alternate" hreflang="es" href="https://myweb.com/es">
 <link rel='shortlink' href='http://blog.unto.net/?p=353' />
+<link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- RSS/Atom (for blogs) -->
 <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
